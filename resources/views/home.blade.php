@@ -32,6 +32,9 @@
             </li>
         @endforeach
     </ul>
+    <div class="pull-right paginate">
+        {{ $articles->links() }}
+    </div>
 </div>
 
 </body>

@@ -33,6 +33,11 @@
                             </form>
                         @endforeach
 
+                            <hr>
+                            <div class="pull-right paginate">
+                                {{ $articles->links() }}
+                            </div>
+
                     </div>
                 </div>
             </div>

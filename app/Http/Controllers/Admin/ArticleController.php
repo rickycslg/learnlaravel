@@ -12,7 +12,7 @@ class ArticleController extends Controller
     // 后台文章首页
     public function index()
     {
-        $list = Article::all();
+        $list = Article::orderBy('id', 'desc')->paginate(5);
         return view('admin/article/index')->withArticles($list);
     }
 

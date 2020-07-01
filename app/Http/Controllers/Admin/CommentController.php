@@ -24,4 +24,29 @@ class CommentController extends Controller
         return redirect()->back()->withInput()->withErrors('删除成功！');
     }
 
+    // 评论查看/编辑页
+    public function edit($id)
+    {
+        return view('admin/comment/edit')->withComment(Comment::find($id));
+    }
+
+    // 编辑
+    public function update(Request $request, $id)
+    {
+        $param = $request->all();
+        $comment = Comment::find($id);
+
+        $comment->nickname = $param['nickname'];
+        $comment->email = $param['email'];
+        $comment->website = $param['website'];
+        $comment->content = $param['content'];
+
+        if ($comment->save()) {
+
+        } else {
+
+        }
+
+    }
+
 }
