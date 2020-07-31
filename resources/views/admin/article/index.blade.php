@@ -21,10 +21,11 @@
                                 <h4>{{ $article->title }}</h4>
                                 <div class="content">
                                     <p>
-                                        {{ $article->body }}
-                                    </p>
                                 </div>
                             </div>
+                                        {{ $article->body }}
+                                    </p>
+                            <a href="{{ url('article/'.$article->id) }}" target="_blank" class="btn btn-warning">查看</a>
                             <a href="{{ url('admin/articles/'.$article->id.'/edit') }}" class="btn btn-success">编辑</a>
                             <form action="{{ url('admin/articles/'.$article->id) }}" method="POST" style="display: inline;">
                                 {{ method_field('DELETE') }}

@@ -27,7 +27,9 @@ class ArticleController extends Controller
     // 后台文章编辑页面
     public function edit($id, Request $request)
     {
-        return view('admin/article/edit')->withArticles(Article::find($id));
+        $qiniu = new QuniuServiceController();
+        $token = $qiniu->getToken();
+        return view('admin/article/edit')->withArticles(Article::find($id))->with('token', $token);
     }
 
 
@@ -67,6 +69,7 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->title = $request->get('title');
         $article->body = $request->get('body');
+        $article->image = $request->get('image');
         if ($article->save()) {
             return redirect('admin/articles');
         } else {
